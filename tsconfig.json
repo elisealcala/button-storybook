@@ -10,6 +10,7 @@
     "jsx": "react",
     "allowJs": true,
     "noEmit": true,
+    "rootDirs": ["src"]
   },
   "exclude": [
     "**/node_modules/*",

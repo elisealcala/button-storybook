@@ -6,7 +6,8 @@
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --mode development",
     "build": "NODE_ENV=production webpack --mode production",
-    "tailwind": "npx tailwind build src/scss/base.scss -o src/scss/tailwind.scss"
+    "tailwind": "npx tailwind build src/scss/base.scss -o src/scss/tailwind.scss",
+    "storybook": "start-storybook"
   },
   "author": "",
   "license": "ISC",
@@ -15,9 +16,11 @@
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
+    "@storybook/react": "^5.3.9",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
     "babel-loader": "^8.0.6",
+    "babel-preset-react-app": "^9.1.1",
     "cross-env": "^7.0.0",
     "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
