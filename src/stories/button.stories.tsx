@@ -20,4 +20,13 @@ storiesOf('Button', module)
         label={text('label', 'Button')}
       />
     </div>
+  ))
+  .add('inverse', () => (
+    <div className="flex p-10 max-w-xs">
+      <Button
+        inverse
+        disabled={boolean('disabled', false)}
+        label={text('label', 'Button')}
+      />
+    </div>
   ));

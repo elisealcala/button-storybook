@@ -1,12 +1,19 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
-  background-color: #4650ca;
+const StyledButton = styled.button<{ inverse: boolean | undefined }>`
+  background-color: ${({ inverse }) => (inverse ? '#fff' : '#4650ca')};
+  color: ${({ inverse }) => (!inverse ? '#fff' : '#4650ca')};
   &:hover {
     background-color: #252fa3;
     transition: all ease 0.3s;
+    ${({ inverse }) =>
+      inverse &&
+      `
+      color: #fff
+    `}
   }
+  border: 1px solid #4650ca;
 `;
 
 type ButtonTypes = {
@@ -15,6 +22,7 @@ type ButtonTypes = {
   type?: 'button' | 'submit' | 'reset';
   label: string;
   small?: boolean;
+  inverse?: boolean;
 };
 
 const Button: FC<ButtonTypes> = ({
@@ -23,17 +31,19 @@ const Button: FC<ButtonTypes> = ({
   onClick,
   type = 'button',
   small,
+  inverse,
 }) => {
   return (
     <StyledButton
       type={type}
       disabled={disabled}
       onClick={onClick}
+      inverse={inverse}
       className={`rounded shadow flex item-center justify-center p-2 ${
         small ? 'w-40' : 'w-full'
       }`}
     >
-      <span className="text-white tracking-wider">{label}</span>
+      <span className="tracking-wider">{label}</span>
     </StyledButton>
   );
 };
