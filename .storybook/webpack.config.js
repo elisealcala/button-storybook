@@ -23,19 +23,13 @@ module.exports = ({ config, mode }) => {
       test: /\.(ts|tsx)$/,
       use: [
         {
-          loader: require.resolve('babel-loader'),
+          loader: require.resolve("babel-loader"),
           options: {
-            rootMode: 'upward',
-            presets: [['react-app', { flow: false, typescript: true }]],
-          },
+            presets: [require.resolve("babel-preset-react-app")]
+          }
         },
-        {
-          loader: require.resolve('react-docgen-typescript-loader'),
-            options: {
-              tsconfigPath: path.join(__dirname, "../tsconfig.json"),
-          },
-        },
-      ],
+        require.resolve("react-docgen-typescript-loader")
+      ]
     }
   ],
   config.resolve.extensions.push('.ts', '.tsx');

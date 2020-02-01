@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 const StyledButton = styled.button<{ inverse: boolean | undefined }>`
@@ -16,16 +16,16 @@ const StyledButton = styled.button<{ inverse: boolean | undefined }>`
   border: 1px solid #4650ca;
 `;
 
-type ButtonTypes = {
+export interface ButtonTypes {
   onClick?(): void;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
   label: string;
   small?: boolean;
   inverse?: boolean;
-};
+}
 
-const Button: FC<ButtonTypes> = ({
+export const Button: React.FC<ButtonTypes> = ({
   disabled = false,
   label,
   onClick,
@@ -47,5 +47,3 @@ const Button: FC<ButtonTypes> = ({
     </StyledButton>
   );
 };
-
-export default Button;
