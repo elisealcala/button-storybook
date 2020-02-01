@@ -25,8 +25,14 @@ module.exports = ({ config, mode }) => {
         {
           loader: require.resolve('babel-loader'),
           options: {
-            cacheDirectory: true,
+            rootMode: 'upward',
             presets: [['react-app', { flow: false, typescript: true }]],
+          },
+        },
+        {
+          loader: require.resolve('react-docgen-typescript-loader'),
+            options: {
+              tsconfigPath: path.join(__dirname, "../tsconfig.json"),
           },
         },
       ],

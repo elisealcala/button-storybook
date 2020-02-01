@@ -1,14 +1,40 @@
-import * as React from 'react';
+import React, { FC } from 'react';
+import styled from 'styled-components';
 
-const Button = ({ label, onClick, type = 'button' }) => {
+const StyledButton = styled.button`
+  background-color: #4650ca;
+  &:hover {
+    background-color: #252fa3;
+    transition: all ease 0.3s;
+  }
+`;
+
+type ButtonTypes = {
+  onClick?(): void;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  label: string;
+  small?: boolean;
+};
+
+const Button: FC<ButtonTypes> = ({
+  disabled = false,
+  label,
+  onClick,
+  type = 'button',
+  small,
+}) => {
   return (
-    <button
+    <StyledButton
       type={type}
+      disabled={disabled}
       onClick={onClick}
-      className="rounded flex item-center justify-center bg-pink-dark font-avenir p-2 w-full"
+      className={`rounded shadow flex item-center justify-center p-2 ${
+        small ? 'w-40' : 'w-full'
+      }`}
     >
-      <span className="text-white">{label}</span>
-    </button>
+      <span className="text-white tracking-wider">{label}</span>
+    </StyledButton>
   );
 };
 
