@@ -7,7 +7,8 @@
     "start": "NODE_ENV=development webpack-dev-server --mode development",
     "build": "NODE_ENV=production webpack --mode production",
     "tailwind": "npx tailwind build src/scss/base.scss -o src/scss/tailwind.scss",
-    "storybook": "start-storybook -p 5555"
+    "storybook": "start-storybook -p 5555",
+    "build:storybook": "build-storybook"
   },
   "author": "",
   "license": "ISC",
